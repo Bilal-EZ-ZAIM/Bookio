@@ -9,7 +9,6 @@ import { DashboardLayout } from "./layouts/DashboardLayout";
 import { DashboardPage } from "./pages/DashboardPage";
 import { OrdersPage } from "./pages/OrdersPage";
 import { UsersPage } from "./pages/UsersPage";
-import AuthApplication from "./components/auth/AuthApplication";
 import Home from "./pages/Home";
 import { BooksPage } from "./pages/BooksPage";
 import { Navigation } from "./components/layout/Navigation";
@@ -51,7 +50,6 @@ function App() {
       <ConditionalNavigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<AuthApplication />} />
         <Route
           path="/dashboard"
           element={
