@@ -45,6 +45,7 @@ const initialState: BookState = {
   booksDashboard: null,
   count: 0,
   cartBooks: [],
+  counterCart: 0,
 };
 
 interface ApiResponse {
@@ -82,7 +83,6 @@ export const createBook = createAsyncThunk(
         releaseDate: data.releaseDate,
         isNew: data.isNew,
         isBestseller: data.isBestseller,
-        file: data.coverImage,
         isbn: data.isbn,
       };
 
