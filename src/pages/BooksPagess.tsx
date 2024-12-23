@@ -15,13 +15,13 @@ export function BooksPagess() {
   const [sortBy, setSortBy] = useState<string>("newest");
 
   const dispatch: AppDispatch = useDispatch();
-  const { isLoading, count, books, cartBooks } = useSelector(
+  const { isLoading, count, books, cartBooks, carts } = useSelector(
     (state: any) => state.book
   );
 
   console.log("===========Book==============");
 
-  console.log(cartBooks);
+  console.log(carts);
   console.log("===========Book==============");
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import {
   Settings,
   Home,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface SidebarProps {
   onNavigate: (page: string) => void;
@@ -31,9 +32,9 @@ export function Sidebar({ onNavigate }: SidebarProps) {
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-200 fixed left-0 top-0">
       <div className="flex items-center justify-center h-16 border-b border-gray-200">
-        <BookOpen className="w-8 h-8 text-blue-600" />
+        <BookOpen className="w-8 h-8 text-green-600" />
         <span className="ml-2 text-xl font-bold text-gray-800">
-          LibraryAdmin
+          <Link to="/">LibraryAdmin</Link>
         </span>
       </div>
 
@@ -42,8 +43,8 @@ export function Sidebar({ onNavigate }: SidebarProps) {
           <button
             key={item.id}
             onClick={() => handleClick(item.id)}
-            className={`w-full flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors ${
-              active === item.id ? "bg-blue-50 text-blue-600" : ""
+            className={`w-full flex items-center px-6 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors ${
+              active === item.id ? "bg-green-50 text-green-600" : ""
             }`}
           >
             <item.icon className="w-5 h-5" />

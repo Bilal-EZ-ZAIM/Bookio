@@ -32,7 +32,7 @@ export function PopularBooks() {
     <div className="bg-white rounded-lg p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-gray-900">Popular Books</h2>
-        <button className="text-blue-600 text-sm hover:text-blue-700">View all</button>
+        <button className="text-green-600 text-sm hover:text-green-700">View all</button>
       </div>
       <div className="space-y-4">
         {popularBooks.map((book) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import { useCartStore } from "../store/useCartStore";
@@ -8,10 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../store/store/Store";
 
 export function CartPage() {
-  const { items, removeItem, updateQuantity, total } = useCartStore();
+  const { cartBooks } = useSelector((state: any) => state.book);
 
-  const dispatch: AppDispatch = useDispatch();
-  const { cartBooks, counterCart } = useSelector((state: any) => state.book);
+  const tot = cartBooks.reduce(
+    (a: any, b: any) => +a + +b.price * +b.quantity,
+    0
+  );
 
   console.log("Book Carts");
 
@@ -64,11 +66,7 @@ export function CartPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <CartSummary
-            subtotal={total}
-            total={total}
-            onCheckout={handleCheckout}
-          />
+          <CartSummary subtotal={tot} total={tot} onCheckout={handleCheckout}  />
         </div>
       </div>
     </div>

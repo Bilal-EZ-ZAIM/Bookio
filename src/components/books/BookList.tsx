@@ -25,12 +25,12 @@ export function BookList({ books, onEdit, onDelete }: BookListProps) {
   };
 
   const renderStars = (rating: number) => {
-    const maxStars = 5; 
+    const maxStars = 5;
     return Array.from({ length: maxStars }, (_, index) => {
       if (index < rating) {
         return <FaStar key={index} className="text-yellow-500" />;
       }
-      return <FaRegStar key={index} className="text-gray-400" />; 
+      return <FaRegStar key={index} className="text-gray-400" />;
     });
   };
 
@@ -104,7 +104,7 @@ export function BookList({ books, onEdit, onDelete }: BookListProps) {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleEdit(book)}
-                      className="p-2 bg-blue-100 text-blue-600 hover:bg-blue-200 rounded-lg shadow-sm"
+                      className="p-2 bg-green-100 text-green-600 hover:bg-green-200 rounded-lg shadow-sm"
                     >
                       <Edit2 className="w-4 h-4" />
                     </button>

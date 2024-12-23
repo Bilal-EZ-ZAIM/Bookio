@@ -1,24 +1,27 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useBooks } from '../hooks/useBooks';
-import { useCartStore } from '../store/useCartStore';
-import { BookDetails } from '../components/book/BookDetails';
-import { BookActions } from '../components/book/BookActions';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useBooks } from "../hooks/useBooks";
+import { useCartStore } from "../store/useCartStore";
+import { BookDetails } from "../components/book/BookDetails";
+import { BookActions } from "../components/book/BookActions";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../store/store/Store";
+import { addOrder } from "../store/features/bookSlice";
 
 export function BookDetailsPage() {
+  const dispatch: AppDispatch = useDispatch();
+
+  const addOrders = (id: any) => {
+    console.log(id);
+
+    dispatch(addOrder({ book: book }));
+  };
   const { id } = useParams();
-  const { books, isLoading } = useBooks();
   const addToCart = useCartStore((state) => state.addItem);
 
-  const book = books.find((b) => b.isbn === id);
+  const { books } = useSelector((state: any) => state.book);
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
-      </div>
-    );
-  }
+  const book = books.find((item: any) => item._id === id);
 
   if (!book) {
     return (
@@ -33,17 +36,14 @@ export function BookDetailsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <img
-            src={book.coverUrl}
+            src={book.coverImage.url}
             alt={book.title}
             className="w-full h-[600px] object-cover rounded-lg shadow-lg"
           />
         </div>
         <div className="space-y-8">
           <BookDetails {...book} />
-          <BookActions
-            {...book}
-            onBuy={() => addToCart(book)}
-          />
+          <BookActions {...book} onBuy={() => addOrders(book)} />
         </div>
       </div>
     </div>

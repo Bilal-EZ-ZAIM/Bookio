@@ -3,6 +3,7 @@ import { AppDispatch } from "../store/store/Store";
 import { Rating } from "./ui/Rating";
 import { BookOpen, ShoppingCart } from "lucide-react";
 import { addOrder } from "../store/features/bookSlice";
+import { Link } from "react-router-dom";
 
 type coverImage = {
   url: string;
@@ -99,7 +100,9 @@ export function BookCard({
           )}
           <div className="flex gap-2">
             <button className="p-2 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors">
-              <BookOpen className="w-5 h-5" />
+              <Link to={`books/${_id}`}>
+                <BookOpen className="w-5 h-5" />
+              </Link>
             </button>
             {inStock && (
               <button className="p-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition-colors">
@@ -111,6 +114,12 @@ export function BookCard({
             )}
           </div>
         </div>
+        <Link
+          className="w-full flex items-center justify-center bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 hover:shadow-md transition mt-3 font-bold"
+          to={`books/${_id}`}
+        >
+          Details Book
+        </Link>
         {!inStock && <p className="mt-2 text-sm text-red-500">Out of Stock</p>}
       </div>
     </div>

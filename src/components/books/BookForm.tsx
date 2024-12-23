@@ -137,7 +137,7 @@ export function BookForm({ onCancel }: { onCancel: () => void }) {
                 type === "textarea" ? (
                   <textarea
                     {...field}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder={label}
                   />
                 ) : type === "checkbox" ? (
@@ -146,7 +146,7 @@ export function BookForm({ onCancel }: { onCancel: () => void }) {
                   <input
                     {...field}
                     type={type}
-                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     placeholder={label}
                   />
                 )
@@ -170,7 +170,7 @@ export function BookForm({ onCancel }: { onCancel: () => void }) {
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
 
@@ -184,7 +184,7 @@ export function BookForm({ onCancel }: { onCancel: () => void }) {
         </button>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
         >
           Add Book
         </button>

@@ -25,8 +25,8 @@ export function UserActivity() {
       <div className="space-y-4">
         {activities.map((activity) => (
           <div key={activity.id} className="flex items-start space-x-4">
-            <div className="p-2 bg-blue-100 rounded-full">
-              <Activity className="w-5 h-5 text-blue-600" />
+            <div className="p-2 bg-green-100 rounded-full">
+              <Activity className="w-5 h-5 text-green-600" />
             </div>
             <div>
               <p className="text-sm text-gray-900">

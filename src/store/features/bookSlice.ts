@@ -14,6 +14,7 @@ interface BookState {
   count: number;
   cartBooks: any;
   counterCart: number;
+  carts: any;
 }
 
 interface CreateBookData {
@@ -46,6 +47,7 @@ const initialState: BookState = {
   count: 0,
   cartBooks: [],
   counterCart: 0,
+  carts: {},
 };
 
 interface ApiResponse {
@@ -253,8 +255,6 @@ const bookslice = createSlice({
   initialState,
   reducers: {
     addOrder(state, action) {
-      console.log("action.payload:", action.payload);
-      console.log("action.payload.book:", action.payload.book);
       const book = {
         _id: action.payload.book._id,
         author: action.payload.book.author,
@@ -264,7 +264,8 @@ const bookslice = createSlice({
         price: action.payload.book.price,
       };
       console.log(book);
-      state.cartBooks.push(book);
+      const exisetBook = state.cartBooks.find((b: any) => b._id === book._id);
+      if (!exisetBook) state.cartBooks.push(book);
     },
 
     onUpdateQuantity(state, action) {
@@ -293,6 +294,18 @@ const bookslice = createSlice({
       if (index !== -1) {
         state.cartBooks.splice(index, 1);
       }
+    },
+
+    createOrder(state, action): any {
+      state.carts = {
+        user: {
+          _id: "",
+          username: "bilal",
+          email: "bilal@gmail.com",
+        },
+        order: [...state.cartBooks],
+        totale: action.payload.totale,
+      };
     },
   },
 
@@ -394,6 +407,7 @@ const bookslice = createSlice({
   },
 });
 
-export const { addOrder, onUpdateQuantity, onRemove } = bookslice.actions;
+export const { addOrder, onUpdateQuantity, onRemove, createOrder } =
+  bookslice.actions;
 
 export default bookslice.reducer;

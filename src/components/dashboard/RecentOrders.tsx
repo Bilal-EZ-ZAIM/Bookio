@@ -26,14 +26,14 @@ export function RecentOrders() {
     <div className="bg-white rounded-lg p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-gray-900">Recent Orders</h2>
-        <button className="text-blue-600 text-sm hover:text-blue-700">View all</button>
+        <button className="text-green-600 text-sm hover:text-green-700">View all</button>
       </div>
       <div className="space-y-4">
         {recentOrders.map((order) => (
           <div key={order.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
             <div className="flex items-center space-x-4">
-              <div className="p-2 bg-blue-100 rounded-full">
-                <Package className="w-5 h-5 text-blue-600" />
+              <div className="p-2 bg-green-100 rounded-full">
+                <Package className="w-5 h-5 text-green-600" />
               </div>
               <div>
                 <p className="font-medium text-gray-900">Order #{order.id}</p>
